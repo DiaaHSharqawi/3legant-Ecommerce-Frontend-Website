@@ -1,0 +1,35 @@
+.Footer-Section{
+    background-color: #141718;
+    padding: 40px 0;
+}
+.logo{
+    position:relative;
+    width: fit-content;
+}
+
+.Footer-Section .up .navbar-nav{
+    padding-top:0 !important ;
+    --bs-nav-link-padding-y: 0;
+}
+.Footer-Section .footer-nav{
+    list-style: none;
+}
+
+.Footer-Section .vh{
+    background-color: #6C7275;
+    width: 100%;
+    height: 1px;
+    position: relative;
+}
+
+.Footer-Section .vr{
+    background-color: white;
+    width: 1px;
+    height: 24px;
+}
+
+.smallLine{
+    background-color: white;
+    width: 40px;
+    height: 1px;
+}

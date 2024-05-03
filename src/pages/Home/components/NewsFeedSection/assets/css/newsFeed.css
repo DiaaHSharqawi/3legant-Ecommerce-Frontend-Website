@@ -1,0 +1,25 @@
+.News-Feed-Section{
+    font-family: 'Poppins' !important;
+
+}
+.news-feed{
+    color:#6C7275;
+    font-size: 16px;
+    font-weight: 700;
+}
+.instagram{
+    font-size: 40px;
+}
+.instagramID{
+    color:#6C7275;
+    font-size: 20px;
+    font-weight: 500;
+}
+.image{
+    aspect-ratio: 1/1;
+    height: 266px;
+}
+.image img{
+    height: 100%;
+    width: 100%;
+}
