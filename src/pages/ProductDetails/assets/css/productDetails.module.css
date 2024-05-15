@@ -1,0 +1,31 @@
+.mainImage{
+    width: 480px;
+    height: 500px !important;
+    aspect-ratio: 1/1;
+    mix-blend-mode: multiply;
+}
+
+.subImages{
+  
+   /* aspect-ratio: 1/1;*/
+    mix-blend-mode: multiply !important;
+}
+
+.notActive{
+    opacity: 0.4;
+background: lightgray;
+}
+
+.active{
+   
+    opacity: 1;
+}
+
+.subImages:hover{
+    cursor: pointer;
+}
+.productDescription{
+    color:  #6C7275;
+}
+
+

@@ -37,13 +37,16 @@ function Footer() {
                       <Link
                         className="nav-link active text-capitalize"
                         aria-current="page"
-                        href="#"
+                        to="/"
                       >
                         home
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link text-capitalize" href="#">
+                      <Link
+                        className="nav-link text-capitalize"
+                        to="/categories"
+                      >
                         categories
                       </Link>
                     </li>

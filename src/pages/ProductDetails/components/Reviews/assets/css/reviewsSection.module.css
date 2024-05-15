@@ -1,0 +1,15 @@
+.personImage{
+    width: 50px !important;
+    height: 50px !important;
+    
+} 
+
+.personImage img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.review{
+    background-color: #FAFAFA;
+    padding: 24px 16px;
+}
