@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.0.1",
+    "@coreui/react": "^5.0.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "jwt-decode": "^4.0.0",
@@ -23,6 +25,7 @@
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.11.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

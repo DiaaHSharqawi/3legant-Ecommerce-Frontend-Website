@@ -3,14 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import profileIcon from "./assets/images/icons/profileIcon.svg";
 import cartIcon from "./assets/images/icons/cartIcon.svg";
-
+import orderIcons from "./assets/images/icons/orderIcons.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import "./assets/css/navbar.module.css";
+import style from "./assets/css/navbar.module.css";
 import { UserLoginContext } from "../../contexts/useLogin/useLogin";
+import { UserCartCountContext } from "../../contexts/useCartCount/useCartCount";
+import { UserOrderCountContext } from "../../contexts/useOrderCount/useOrderCount";
+
 function Navbar() {
   const { userName, setUserName, isLogin, setUserToken, setIsLogin } =
     useContext(UserLoginContext);
+  const { cartCount } = useContext(UserCartCountContext);
+  const { orderCount } = useContext(UserOrderCountContext);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -91,11 +96,28 @@ function Navbar() {
                   </li>
                   */}
                     {isLogin ? (
-                      <li className="nav-item">
-                        <Link className="nav-link">
-                          <img src={cartIcon} alt="cartIcon" />
-                        </Link>
-                      </li>
+                      <>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/cart">
+                            <div className={`cart ${style.cart}`}>
+                              <img src={cartIcon} alt="cartIcon" />
+                              <div className={`cartCount ${style.cartCount}`}>
+                                {cartCount}
+                              </div>
+                            </div>
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/userOrders">
+                            <div className={`cart ${style.cart}`}>
+                              <img src={orderIcons} alt="cartIcon" />
+                              <div className={`cartCount ${style.cartCount}`}>
+                                {orderCount}
+                              </div>
+                            </div>
+                          </Link>
+                        </li>
+                      </>
                     ) : null}
                   </ul>
                 </div>

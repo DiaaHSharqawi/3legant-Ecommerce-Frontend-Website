@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductSection from "./components/ProductSection/ProductSection";
 import { Oval } from "react-loader-spinner";
 import axios from "axios";
 import ReviewsSection from "./components/Reviews/ReviewsSection";
+import { Bounce, toast } from "react-toastify";
 
 function ProductDetails() {
   const { productID } = useParams("productID");
-
   const [loader, setLoader] = useState(true);
   const [productDetails, setProductDetails] = useState({});
   const [mainImage, setMainImage] = useState("");
@@ -65,7 +65,7 @@ function ProductDetails() {
                 />
               </div>
               <div className="my-5">
-                <ReviewsSection reviews={reviews} />
+                <ReviewsSection reviews={reviews} productID={productID} />
               </div>
             </div>
           </div>

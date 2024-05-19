@@ -1,0 +1,26 @@
+.remove{
+    color:#6C7275;
+    cursor: pointer;
+}
+.remove:hover{
+    color:black
+}
+
+.cartSummary{
+    border : 1px solid #6C7275;
+    border-radius: 10px;
+    padding: 24px;
+}
+.methode{
+    border : 1px solid #6C7275;
+    border-radius: 4px;
+    padding: 13px 16px;
+}
+.productImage img{
+    object-fit: fill;
+}
+.OrderForm{
+    border : 1px solid #6C7275;
+    border-radius: 10px;
+    padding: 24px;
+}

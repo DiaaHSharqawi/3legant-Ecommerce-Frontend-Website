@@ -51,7 +51,7 @@ function Footer() {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link text-capitalize" href="#">
+                      <Link className="nav-link text-capitalize" to="/products">
                         products
                       </Link>
                     </li>

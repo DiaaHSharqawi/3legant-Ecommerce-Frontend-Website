@@ -15,6 +15,12 @@ import UnProtectedRoutes from "./components/UnProtectedRoutes/UnProtectedRoutes"
 import Categories from "./pages/Categories/Categories";
 import Products from "./pages/Products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Cart from "./pages/Cart/Cart";
+import UserCartCountContextProvider from "./contexts/useCartCount/useCartCount";
+import CreateOrder from "./pages/CreateOrder/CreateOrder";
+import User from "./pages/User/User";
+import UserOrders from "./pages/UserOrders/UserOrders";
+import UserOrderCountContextProvider from "./contexts/useOrderCount/useOrderCount";
 function App() {
   const router = createBrowserRouter([
     {
@@ -74,12 +80,20 @@ function App() {
           ),
         },
         {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/createOrder",
+          element: <CreateOrder />,
+        },
+        {
           path: "/user/profile",
-          element: (
-            <ProtectedRoutes>
-              <UserProfile />
-            </ProtectedRoutes>
-          ),
+          element: <UserProfile />,
+        },
+        {
+          path: "/userOrders",
+          element: <UserOrders />,
         },
       ],
     },
@@ -87,7 +101,11 @@ function App() {
   return (
     <>
       <UserLoginContextProvider>
-        <RouterProvider router={router} />
+        <UserCartCountContextProvider>
+          <UserOrderCountContextProvider>
+            <RouterProvider router={router} />
+          </UserOrderCountContextProvider>
+        </UserCartCountContextProvider>
       </UserLoginContextProvider>
 
       <ToastContainer

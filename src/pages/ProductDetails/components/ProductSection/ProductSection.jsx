@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./../../assets/css/productDetails.module.css";
 import { Oval } from "react-loader-spinner";
 import useProduct from "./../../../../hooks/useProduct/useProduct";
 
 import starIcon from "./../../assets/images/icons/starIconBlack.svg";
 import emptyStarIcon from "./../../assets/images/icons/emptyStartIcon.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
+import axios from "axios";
+import { UserCartCountContext } from "../../../../contexts/useCartCount/useCartCount";
 
 function ProductSection({ loader, product, avgRating }) {
   const { productID } = useParams("productID");
-
+  const navigate = useNavigate();
+  const [addItemLoader, setAddItemsLoader] = useState(false);
   const { mainImage, setMainImage } = useProduct(productID);
   const [currentMainImage, setCurrentMainImage] = useState("");
   const [activeIndex, setActiveIndex] = useState("");
+  const { setCartCount } = useContext(UserCartCountContext);
 
   useEffect(() => {
     if (product.mainImage) {
@@ -29,6 +34,80 @@ function ProductSection({ loader, product, avgRating }) {
     setMainImage(e.target.src);
     setActiveIndex(id);
   };
+
+  const addItemToCart = async (e, productID) => {
+    e.preventDefault();
+    setAddItemsLoader(true);
+    const BASE_API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = `${BASE_API_URL}/cart`;
+    console.log(`api url : ${API_URL}`);
+    try {
+      const token = localStorage.getItem("userToken");
+      console.log("token : ", token);
+      if (token) {
+        const { data } = await axios.post(
+          API_URL,
+          {
+            productId: productID,
+          },
+          {
+            headers: {
+              Authorization: `Tariq__${token}`,
+            },
+          }
+        );
+
+        if (data.message == "success") {
+          toast.success("Item added to the cart successfuly", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          // console.log("prod section", data);
+          setCartCount(data.cart.products.length);
+          navigate(`/cart`);
+        }
+      }
+    } catch (error) {
+      console.log(`error is : ${error}`);
+      console.log(error);
+
+      if (error.response.data.message == "product already exists") {
+        toast.error("product already exists in the cart", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      } else {
+        toast.error(`${error.response.data.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      }
+    } finally {
+      setAddItemsLoader(false);
+    }
+  };
+
   return (
     <>
       <div className="product">
@@ -147,17 +226,33 @@ function ProductSection({ loader, product, avgRating }) {
                   <span className="fs-5">stock : {product.stock}</span>
                 </div>
                 <hr />
-                <div className="productPrice">
-                  <span className="fs-2">${product.finalPrice}</span>
-                  {product.disccount > 0 ? (
-                    <span className="text-decoration-line-through">
-                      {product.price}
-                    </span>
-                  ) : null}
+                <div className={`productPrice d-flex`}>
+                  <span
+                    className={
+                      product.discount > 0
+                        ? `productPrice text-decoration-line-through text-danger fs-2`
+                        : `productPrice fs-2`
+                    }
+                  >
+                    ${product.finalPrice}
+                  </span>
                 </div>
+                {product.discount > 0 ? (
+                  <span className="productPrice fs-2 col-12 text-center ">
+                    $
+                    {product.finalPrice -
+                      product.price * (product.discount / 100)}
+                  </span>
+                ) : null}
 
                 <div className="addToCart w-100">
-                  <Link class="btn btn-dark w-100">Add to cart</Link>
+                  <button
+                    class="btn btn-dark w-100"
+                    disabled={addItemLoader ? true : false}
+                    onClick={(e) => addItemToCart(e, productID)}
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>

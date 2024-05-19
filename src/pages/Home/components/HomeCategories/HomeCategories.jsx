@@ -64,7 +64,7 @@ function HomeCategories() {
               <Slider {...settings}>
                 {categories.map((category) => (
                   <div className="product ratio ratio-4x3" key={category.id}>
-                    <Link to={category._id}>
+                    <Link to="/categories">
                       <img
                         src={category.image.secure_url}
                         alt=""

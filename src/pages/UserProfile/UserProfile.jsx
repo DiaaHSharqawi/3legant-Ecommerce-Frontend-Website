@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import "./assets/css/userProfile.css";
 import useProfile from "../../hooks/useProfile/useProfile";
 import { Oval } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 function UserProfile() {
   const { userProfile, loader } = useProfile();
   try {
@@ -14,7 +15,7 @@ function UserProfile() {
 
   return (
     <>
-      <section className="User-Profile-Section my-5">
+      <section className="User-Profile-Section my-5 h-100">
         <div className="container">
           <div className="row">
             {loader ? (
