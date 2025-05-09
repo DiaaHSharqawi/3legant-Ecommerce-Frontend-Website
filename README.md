@@ -1,8 +1,39 @@
-# React + Vite
+# 3legant Ecommerce Frontend Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern e-commerce frontend website built using React and Vite. The project leverages features like React Hooks, Context API, and third-party libraries to deliver a seamless shopping experience for users.
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**: Implements login and registration functionalities, with JWT token decoding for session management.
+- **Product Management**: Users can browse, filter, and search products. The cart system dynamically updates the subtotal based on product quantities and prices.
+- **Order Handling**: Allows users to place and manage their orders, including the ability to cancel under specific conditions.
+- **Responsive Design**: The website adapts to various screen sizes, ensuring a consistent experience across devices.
+- **Backend Integration**: API calls are made using Axios, and the application fetches data dynamically from an external base API URL.
+
+### Development Setup
+
+The project is structured using the [Vite](https://vitejs.dev/) build tool with support for React. It also includes ESLint rules for better code quality and consistency.
+
+To get started:
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Technologies Used
+
+- **React**: For building the user interface.
+- **Vite**: As the build tool for fast development.
+- **Axios**: For API requests.
+- **React Context API**: For state management related to user login, cart, and order counts.
+- **Bootstrap**: For styling and responsive design.
+
+Explore the code for more details about the features and implementation.
+
+---
+Happy coding! 🎉
