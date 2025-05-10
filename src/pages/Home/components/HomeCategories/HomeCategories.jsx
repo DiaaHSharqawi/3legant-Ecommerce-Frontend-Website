@@ -1,17 +1,16 @@
-import useCategories from "./../../../../hooks/useCategories/useCategories";
-import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./homeCategoriesSwiper.css";
-import { Link } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import useCategories from "./../../../../hooks/useCategories/useCategories";
+import "./homeCategoriesSwiper.css";
 
 function HomeCategories() {
   const API_URL = import.meta.env.VITE_API_URL;
   console.log(API_URL);
 
-  const { categories, loader } = useCategories();
+  const { categories, loader: isLoading } = useCategories();
 
   console.log(categories);
   const settings = {
@@ -54,15 +53,31 @@ function HomeCategories() {
     ],
   };
 
+  if (isLoading) {
+    return (
+      <div className="loader mx-auto my-5 d-flex justify-content-center">
+        <Oval
+          visible={true}
+          height="100"
+          width="100"
+          color="#4fa94d"
+          ariaLabel="oval-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
+      </div>
+    );
+  }
+
   return (
     <>
       <section className="Home-Categories-Section container my-5">
         <h2 className="text-capitalize fw-bold">browse by category</h2>
-        {!loader ? (
-          <div className="slider-container my-5">
-            <div className="products justify-content-center align-items-center">
-              <Slider {...settings}>
-                {categories.map((category) => (
+        <div className="slider-container my-5">
+          <div className="products justify-content-center align-items-center">
+            <Slider {...settings}>
+              {categories &&
+                categories.map((category) => (
                   <div className="product ratio ratio-4x3" key={category.id}>
                     <Link to="/categories">
                       <img
@@ -73,22 +88,9 @@ function HomeCategories() {
                     </Link>
                   </div>
                 ))}
-              </Slider>
-            </div>
+            </Slider>
           </div>
-        ) : (
-          <div className="loader mx-auto my-5 d-flex justify-content-center">
-            <Oval
-              visible={true}
-              height="100"
-              width="100"
-              color="#4fa94d"
-              ariaLabel="oval-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>
-        )}
+        </div>
       </section>
     </>
   );

@@ -1,22 +1,21 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../Logo/Logo";
-import profileIcon from "./assets/images/icons/profileIcon.svg";
-import cartIcon from "./assets/images/icons/cartIcon.svg";
-import orderIcons from "./assets/images/icons/orderIcons.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import style from "./assets/css/navbar.module.css";
-import { UserLoginContext } from "../../contexts/useLogin/useLogin";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UserCartCountContext } from "../../contexts/useCartCount/useCartCount";
+import { UserLoginContext } from "../../contexts/useLogin/useLogin";
 import { UserOrderCountContext } from "../../contexts/useOrderCount/useOrderCount";
+import Logo from "../Logo/Logo";
+import style from "./assets/css/navbar.module.css";
+import cartIcon from "./assets/images/icons/cartIcon.svg";
+import orderIcons from "./assets/images/icons/orderIcons.svg";
+import profileIcon from "./assets/images/icons/profileIcon.svg";
 
 function Navbar() {
   const { userName, setUserName, isLogin, setUserToken, setIsLogin } =
     useContext(UserLoginContext);
   const { cartCount } = useContext(UserCartCountContext);
   const { orderCount } = useContext(UserOrderCountContext);
-  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("userToken");
@@ -124,25 +123,14 @@ function Navbar() {
                 <div className="col-2">
                   <div className="user-menu d-none d-lg-block">
                     <ul className="navbar-nav mx-auto">
-                      {/*
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link active"
-                        aria-current="page"
-                        color="red-text"
-                      >
-                        <img src={searchIcon} alt="searchIcon" />
-                      </Link>
-                    </li>
-                    */}
                       <li className="nav-item">
                         <Link className="nav-link">
                           <img src={profileIcon} alt="profileIcon" />
                         </Link>
                       </li>
-                      <li class="nav-item dropdown">
+                      <li className="nav-item dropdown">
                         <a
-                          class="nav-link dropdown-toggle"
+                          className="nav-link dropdown-toggle"
                           href="#"
                           id="navbarDropdown"
                           role="button"
@@ -152,7 +140,7 @@ function Navbar() {
                           {userName}
                         </a>
                         <ul
-                          class="dropdown-menu"
+                          className="dropdown-menu"
                           aria-labelledby="navbarDropdown"
                         >
                           {
@@ -161,7 +149,7 @@ function Navbar() {
                                 <>
                                   <li>
                                     <Link
-                                      class="dropdown-item"
+                                      className="dropdown-item"
                                       to="/user/profile"
                                     >
                                       Profile
@@ -169,7 +157,7 @@ function Navbar() {
                                   </li>
                                   <li>
                                     <Link
-                                      class="dropdown-item"
+                                      className="dropdown-item"
                                       onClick={logout}
                                     >
                                       Logout
@@ -178,7 +166,10 @@ function Navbar() {
                                 </>
                               ) : (
                                 <li>
-                                  <Link class="dropdown-item" to="/auth/login">
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/auth/login"
+                                  >
                                     Login
                                   </Link>
                                 </li>
@@ -187,7 +178,7 @@ function Navbar() {
                           }
 
                           <li>
-                            <hr class="dropdown-divider"></hr>
+                            <hr className="dropdown-divider"></hr>
                           </li>
                         </ul>
                       </li>

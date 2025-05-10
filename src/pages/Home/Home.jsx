@@ -1,4 +1,3 @@
-import React from "react";
 import HeroSection from "./components/Hero/Hero";
 import HomeCategories from "./components/HomeCategories/HomeCategories";
 import HomeKeyFeatures from "./components/KeyFeaturesSection/HomeKeyFeatures";
