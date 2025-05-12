@@ -1,20 +1,20 @@
-import FooterCategories from "./components/FooterCategories/FooterCategories";
-import FooterBrand from "./components/FooterMenu/FooterBrand/FooterBrand";
+import FooterBrand from "./FooterBrand/FooterBrand";
+import FooterCategories from "./FooterCategories/FooterCategories";
 
 function FooterMenu() {
   return (
-    <div className="up">
+    <div className="up col-12">
       <div
         className="row 
-              flex-column flex-lg-row 
-              justify-contect-center 
-              align-items-center 
-              text-center"
+        flex-column flex-lg-row 
+        justify-contect-center 
+        align-items-center 
+        text-center"
       >
-        <div className="col-6 gap-5">
+        <div className="col-sm-12 col-xl-6">
           <FooterBrand />
         </div>
-        <div className="col-6 text-white my-5 ">
+        <div className="col-sm-12 col-xl-6 text-white my-5">
           <FooterCategories />
         </div>
       </div>

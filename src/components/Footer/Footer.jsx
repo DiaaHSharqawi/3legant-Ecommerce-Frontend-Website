@@ -7,7 +7,7 @@ import FooterMenu from "./components/FooterMenu/FooterMenu";
 function Footer() {
   return (
     <footer>
-      <div className="Footer-Section text-white">
+      <div className="Footer-Section text-white w-100">
         <div className="container">
           <div className="row align-content-center">
             <FooterMenu />

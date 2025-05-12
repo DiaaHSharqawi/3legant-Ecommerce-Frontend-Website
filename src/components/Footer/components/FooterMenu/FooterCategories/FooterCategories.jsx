@@ -1,4 +1,4 @@
-import { footerCategories } from "../../data/footerData";
+import { footerCategories } from "./../../../data/footerData";
 import FooterCategory from "./components/FooterCategory";
 
 function FooterCategories() {
@@ -8,8 +8,10 @@ function FooterCategories() {
        d-flex gap-5 flex-column
        flex-sm-column flex-lg-row
        align-items-xl-start 
-       align-items-md-center 
-       justify-content-end"
+       align-items-sm-center 
+       justify-content-sm-center
+       justify-content-xl-end
+       px-0"
     >
       {footerCategories.map((footerCategory) => {
         return (
