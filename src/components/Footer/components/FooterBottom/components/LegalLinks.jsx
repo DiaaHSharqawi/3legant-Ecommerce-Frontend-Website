@@ -1,4 +1,4 @@
-import { legalLinks } from "./../../../data/footerData";
+import { legalLinks } from "../../../data/footerData";
 import LegalLink from "./LegalLink";
 
 function LegalLinks() {

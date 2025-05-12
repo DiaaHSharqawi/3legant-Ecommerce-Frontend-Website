@@ -1,4 +1,4 @@
-import { footerCategories } from "./../../../data/footerData";
+import { footerCategories } from "../../../data/footerData";
 import FooterCategory from "./components/FooterCategory";
 
 function FooterCategories() {
