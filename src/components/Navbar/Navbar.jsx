@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserCartCountContext } from "../../contexts/useCartCount/useCartCount";
 import { UserLoginContext } from "../../contexts/useLogin/useLogin";
 import { UserOrderCountContext } from "../../contexts/useOrderCount/useOrderCount";
@@ -52,7 +52,7 @@ function Navbar() {
               className="collapse navbar-collapse justify-content-center"
               id="navbarNav"
             >
-              <div className="row flex-row  w-100">
+              <div className="row flex-row w-100">
                 <div className="col-10">
                   <ul className="navbar-nav fs-5 gap-4 justify-content-center">
                     <li className="nav-item d-sm-block d-xl-none">
@@ -87,13 +87,6 @@ function Navbar() {
                         products
                       </Link>
                     </li>
-                    {/*
-                  <li className="nav-item">
-                    <Link className="nav-link text-capitalize ">
-                      contact us
-                    </Link>
-                  </li>
-                  */}
                     {isLogin ? (
                       <>
                         <li className="nav-item">
