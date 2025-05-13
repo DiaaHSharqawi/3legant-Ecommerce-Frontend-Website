@@ -10,7 +10,6 @@ function Home() {
       <div className="my-5">
         <HomeKeyFeatures />
       </div>
-
       <div className="my-5">
         <NewsFeedSection />
       </div>
