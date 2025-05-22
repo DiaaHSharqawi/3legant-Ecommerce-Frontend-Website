@@ -1,10 +1,4 @@
-import React from "react";
-
-function Logo() {
-  return (
-    <>
-      <div className="logo">
-        <svg
+ <svg
           xmlns="http://www.w3.org/2000/svg"
           width="97"
           height="25"
@@ -20,9 +14,3 @@ function Logo() {
             fill="#6C7275"
           />
         </svg>
-      </div>
-    </>
-  );
-}
-
-export default Logo;

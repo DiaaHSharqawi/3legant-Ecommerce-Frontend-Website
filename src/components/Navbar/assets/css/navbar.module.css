@@ -1,20 +1,25 @@
-
-.cart{
-    position: relative;
+.cart {
+  position: relative;
 }
-.cartCount{
-    position: absolute;
-    bottom: 100%;
-    left: 100%;
-    right: 0;
-    top: -50%;
-    background-color: #141718;
-    width: 20px;
-    height: 20px;
-    border-radius: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 12px;
+
+.order {
+  position: relative;
+}
+
+.cartCountm,
+.orderCount {
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  right: 0;
+  top: -50%;
+  background-color: #141718;
+  width: 20px;
+  height: 20px;
+  border-radius: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 12px;
 }

@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { Oval } from "react-loader-spinner";
+import ReactPaginate from "react-paginate";
+import { Link, useNavigate } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
+import NavBarLogo from "../../components/Logo/NavBarLogo";
+import { UserLoginContext } from "../../contexts/useLogin/useLogin";
 import useCategories from "../../hooks/useCategories/useCategories";
 import style from "./assets/css/categories.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Oval } from "react-loader-spinner";
-import Logo from "./../../components/Logo/Logo";
-import { UserLoginContext } from "../../contexts/useLogin/useLogin";
-import { Bounce, toast } from "react-toastify";
-import ReactPaginate from "react-paginate";
 
 function Categories() {
   const { categories, loader, firstCategoryID } = useCategories();
@@ -16,7 +16,6 @@ function Categories() {
   const [categoryID, setCategoryID] = useState(firstCategoryID);
   const [availableSoon, setAvailableSoon] = useState(false);
   const { isLogin } = useContext(UserLoginContext);
-  const [productID, setProductID] = useState("");
   const navigate = useNavigate();
 
   const [numberOfPages, setNumberOfPages] = useState(0);
@@ -210,7 +209,7 @@ function Categories() {
                     <div className="row gap-5">
                       <div className="col-12">
                         <div className="logo mx-auto">
-                          <Logo />
+                          <NavBarLogo />
                         </div>
                       </div>
                       <div className="col-12">

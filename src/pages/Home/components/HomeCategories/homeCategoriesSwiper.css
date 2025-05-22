@@ -1,8 +1,13 @@
-
-.slick-slide{
-    width: 300px !important;
+.slick-slide {
+  width: 320px !important;
 }
-.slick-prev:before, .slick-next:before{
-    font-size: 25px;
-    color: black;
+
+.slick-slide > div {
+  margin: 0 2rem;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 25px;
+  color: black;
 }
