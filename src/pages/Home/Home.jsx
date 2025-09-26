@@ -2,6 +2,7 @@ import HeroSection from "./components/Hero/Hero";
 import HomeCategories from "./components/HomeCategories/HomeCategories";
 import HomeKeyFeatures from "./components/KeyFeaturesSection/HomeKeyFeatures";
 import NewsFeedSection from "./components/NewsFeedSection/NewsFeedSection";
+
 function Home() {
   return (
     <>
