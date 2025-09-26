@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 function useCategories() {
   const [categories, setCategories] = useState([]);
   const [loader, setLoader] = useState(true);
-  const [firstCategoryID, setFirstCategoryID] = useState("");
+  const [firstCategoryID] = useState("");
 
   useEffect(() => {
     const getCategories = async () => {

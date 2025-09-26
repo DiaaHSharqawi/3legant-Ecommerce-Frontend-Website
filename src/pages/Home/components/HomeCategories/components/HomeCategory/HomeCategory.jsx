@@ -6,7 +6,10 @@ function HomeCategory({ category }) {
     <div className="product ratio ratio-1x1" key={category.id}>
       <Link to="">
         <img
-          src={category.image}
+          src={
+            category.image ??
+            "https://wilkinsonstar247.com/content/images/thumbs/default-image_390.png"
+          }
           alt={category.name}
           className="img-fluid"
           loading="lazy"
